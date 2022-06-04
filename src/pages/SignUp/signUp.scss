@@ -1,0 +1,87 @@
+@use '../../scss/' as *;
+
+.signUp {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.8) 90%),
+        url("https://assets.nflxext.com/ffe/siteui/vlv3/970e664f-2df4-47ce-b4fa-446082f5abc1/fd873ca8-2d92-4212-a5e2-82f07089566a/VN-en-20220523-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signUp-top {
+    @include flex(center, space-between);
+    margin: 0 56px;
+    padding: 28px 0 0;
+
+    .logo-wrapper {
+        height: 36px;
+    }
+
+    .logo {
+        height: 100%;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .btn {
+        height: 33px;
+        padding: 7px 17px;
+        background-color: $main-color;
+        border-radius: 4px;
+        color: $txt-color;
+        font-size: 1.6rem;
+        font-weight: 300;
+        font-family: $font-family;
+        cursor: pointer;
+    }
+}
+
+.signUp-content {
+    @include flex(center, center);
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: $txt-color;
+    margin: 200px;
+
+    .title {
+        font-size: 5.125rem;
+    }
+
+    .desc {
+        font-size: 3rem;
+        font-weight: 300;
+        margin: 20px 0
+    }
+
+    .question {
+        font-size: 1.9rem;
+        margin: 10px 0
+    }
+
+    .box {
+        display: flex;
+        height: 60px;
+        margin: 10px 0
+    }
+
+    .input {
+        width: 450px;
+        height: 100%;
+        border-radius: 3px 0 0 3px;
+        padding-left: 10px;
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        width: 208px;
+        height: 100%;
+        background-color: $main-color;
+        border-radius: 0 3px 3px 0;
+        font-size: 2.6rem;
+        color: $txt-color
+    }
+}

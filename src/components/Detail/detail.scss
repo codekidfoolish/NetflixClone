@@ -1,0 +1,186 @@
+@use '../../scss/' as *;
+
+
+.detail {
+
+    .detail-overlay {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        @include flex (center, center);
+        z-index: 999;
+
+        .modal {
+            color: #fff;
+            width: 850px;
+            height: 625px;
+            background-color: transparent;
+            border-radius: 6px;
+            position: relative;
+            z-index: 998;
+
+            .modal-top {
+                width: 100%;
+                height: 356px;
+                background-position: 0 top;
+                background-repeat: no-repeat;
+                border-radius: 6px 6px 0 0;
+                position: relative;
+                background-color: transparent;
+
+                .modal-close {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    height: 34px;
+                    width: 34px;
+                    font-size: 2.6rem;
+                    background-color: #fff;
+                    color: #000;
+                    border-radius: 50%;
+                    filter: drop-shadow(3px 5px 2px rgb(0 0 0/.4));
+                    cursor: pointer;
+                    @include flex (center, center)
+                }
+
+                ;
+
+                .top-content {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 30px;
+
+                    .top-title {
+                        font-size: 3.2rem;
+                        margin-bottom: 10px;
+                    }
+
+                    ;
+
+                    .top-button {
+                        @include flex (center, unset);
+
+                        .play-btn {
+                            height: 35px;
+                            width: 100px;
+                            color:#fff;
+                            background-color: $main-color;
+                            border-radius: 4px;
+                            @include flex (center, center);
+                            cursor: pointer;
+
+                            .play-icon {
+                                margin-right: 10px;
+                            }
+                        }
+
+                        ;
+
+                        .play-btn:hover {
+                            background-color: rgb(199, 199, 199);
+
+                        }
+
+                        ;
+
+
+                        .btn {
+                            margin-left: 12px;
+                            font-size: 2rem;
+                            border: 2px solid #fff;
+                            border-radius: 50%;
+                            padding: 4px 5px;
+                            cursor: pointer;
+
+                        }
+
+                        ;
+
+                    }
+                }
+
+
+            }
+
+            ;
+
+            .bg-linear {
+                width: 100%;
+                height: 100px;
+                background: linear-gradient(0deg, #181818, transparent 50%);
+                background-color: transparent;
+                background-position: 0 top;
+                background-repeat: repeat-x;
+                background-size: 100% 100%;
+                opacity: 1;
+                position: absolute;
+                bottom: 0px
+            }
+
+            ;
+
+            .modal-bottom {
+                background-color: #181818;
+                width: 100%;
+                height: 270px;
+                padding: 30px;
+                border-radius: 0 0 6px 6px;
+                @include flex(unset, unset);
+
+                .bottom-left {
+                    flex: 8;
+                    font-size: 1.6rem;
+                    max-width: 460px;
+
+                    .info-list {
+                        margin-bottom: 12px;
+
+                        .info-item {
+                            margin-right: 12px;
+
+                            &.highlight {
+                                color: #46d369;
+                            }
+
+                            &.border {
+                                font-size: 1.4rem;
+                                border: 1px solid #fff;
+                                padding: 0 4px;
+                                border-radius: 4px
+                            }
+                        }
+
+                        ;
+                    }
+
+                    ;
+
+                    .infor-content {
+                        line-height: 2rem;
+                    }
+                }
+
+                ;
+
+                .bottom-right {
+                    .info {
+                        margin-bottom: 10px;    
+                        display: flex;;
+                        .grey {
+                            color: gray
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    ;
+
+}

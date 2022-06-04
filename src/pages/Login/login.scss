@@ -1,0 +1,116 @@
+@use '../../scss/' as *;
+
+.Login {
+    width: 100vw;
+    height: auto;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.8) 90%),
+        url("https://assets.nflxext.com/ffe/siteui/vlv3/970e664f-2df4-47ce-b4fa-446082f5abc1/fd873ca8-2d92-4212-a5e2-82f07089566a/VN-en-20220523-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .login-top {
+        padding: 30px 0 0 40px;
+
+        .logo-wrapper {
+            height: 46px;
+        }
+
+        .logo {
+            height: 100%;
+        }
+    }
+
+    .login-content {
+        @include flex (center, center);
+        color: $txt-color;
+
+        .modal {
+            width: 450px;
+            max-height: 660px;
+            background-color: rgba(0, 0, 0, .75);
+            border-radius: 4px;
+            padding: 60px 40px;
+            margin-bottom: 20px;
+            h1 {
+                font-size: 3.2rem;
+                margin-bottom: 20px;
+                margin-left: 28px;
+            }
+
+            .modal-top {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 314px;
+                margin-left: 30px;
+
+                .input {
+                    width: 100%;
+                    height: 50px;
+                    background-color: #333;
+                    color:$txt-color;
+                    border-radius: 3px;
+                    padding: 8px 20px;
+                    margin: 8px 0;
+                    font-size: 1.6rem;
+                }
+
+                .btn {
+                    width: 100%;
+                    height: 50px;
+                    margin: 30px 0 10px;
+                    background-color: $main-color;
+                    border-radius: 3px;
+                    color: #fff;
+                    font-size: 1.8rem;
+                    cursor: pointer;
+                }
+
+                .helping {
+                    color: #b3b3b3;
+                    @include flex(center, space-between);
+                    width: 100%;
+                    .help {
+                        font-size: 1.3rem;
+                        cursor:pointer
+                    }
+                    .help:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+            }
+            .modal-bottom {
+                margin: 80px 30px 20px;
+
+                .question {
+                    color: #737373;
+                    font-size: 1.6rem;
+                    margin-top: 16px;
+                    .highlight {
+                        color: $txt-color;
+                        margin-left: 5px;
+                    }
+                }
+                .desc {
+                    color: #838383;
+                    font-size: 1.3rem;
+                    margin:13px 0;
+                    .desc-highlight {
+                        color: #0071eb;
+                        margin-left: 5px;
+                    }
+                }
+                .highlight:hover,.desc-highlight:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+    }
+}
