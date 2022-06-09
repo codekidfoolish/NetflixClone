@@ -72,7 +72,7 @@ function Features({ type }) {
                 <h1 className="movie-title">{
                     movie?.title || movie?.name || movie?.original_name
                 }</h1>
-                <p className="movie-dsc">{movie?.overview}</p>
+                <h5 className="movie-dsc">{movie?.overview}</h5>
                 <div className="movie-btn">
                     <button  onClick={() => handleVideo(movie)} className="btn">
                         {

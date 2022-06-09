@@ -27,6 +27,9 @@
     };
     .features-img {
         height: 100%;
+        @include mobile {
+            object-fit: contain
+        }
     };
     .youtubeTrailer {
         width: 100%;
@@ -53,10 +56,17 @@
         z-index: 2;
         .movie-title {
             font-size: 5rem;
-            text-shadow: 2px 2px 2px #3a3939;;
+            text-shadow: 2px 2px 2px #3a3939;
+            @include mobile {
+                display: none
+               }
         }
         .movie-dsc {
             margin: 20px 0;
+            font-size: 1.6rem;
+            @include mobile {
+             display: none
+            }
         };
         .movie-btn {
             @include flex (center, unset);
@@ -80,6 +90,10 @@
             .info-btn {
                 color: rgb(36, 35, 35);
                 background-color: rgb(219, 214, 214);
+            };
+
+            @include mobile {
+                margin-left: 35px;
             }
         }
     }

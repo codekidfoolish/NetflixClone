@@ -92,7 +92,7 @@ function Row({ title, fetchURL, isLarged }) {
                 <div ref={SlideList} className="row-list">
                     {
                         movies.map((movie, index) => (
-
+                            
                             <div className='row-item' key={movie.id}>
                                 <img src={`${base_URL}${movie.poster_path}`}
                                     alt={movie.name}

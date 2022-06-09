@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faBell, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -17,11 +18,11 @@ function Navbar() {
     return (
         <div className={isScrolled ? "navbar scrolled" : "navbar"}>
             <div className="navbar-left">
-                <div className="logo-wrapper">
+                <div className="logo-wrapper" >
                     <img
                         onClick={() => navigate('/')}
                         className="logo"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+                        src={logo}
                         alt="logo"
                     />
                 </div>

@@ -15,6 +15,10 @@
     transition: all 0.5s linear;
     z-index: 999;
 
+    @include mobile {
+       padding: 10px 4px
+    }
+
     &.scrolled {
         background-color: black;
         opacity: 1;
@@ -40,7 +44,12 @@
 
             .navbar-item {
                 margin-left: 20px;
+            };
+
+            @include mobile {
+                display:none   
             }
+
         }
     }
 
@@ -48,7 +57,7 @@
         @include flex(center, unset);
         border-radius: 3px;
         cursor: pointer;
-
+  
         .icon {
             margin-right: 20px;
             position: relative;
@@ -102,6 +111,9 @@
 
         .userName {
             margin-right: 20px;
+            @include mobile {
+                display:none   
+            }
         }
 
         .userAvatar {

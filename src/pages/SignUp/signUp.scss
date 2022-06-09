@@ -17,6 +17,9 @@
     margin: 0 56px;
     padding: 28px 0 0;
 
+    @include mobile {
+        margin: 0 10px;
+    }
     .logo-wrapper {
         height: 36px;
     }
@@ -39,13 +42,31 @@
         cursor: pointer;
     }
 }
-
+.mobile-content {
+    display: none;
+    @include mobile {
+        display: block;
+        color: #fff;
+        font-size: 4rem;
+        position: absolute;
+        top: 35%;
+        left: 13%;
+    };
+    .login-link {
+        text-decoration: underline;
+        color: $main-color
+    }
+}
 .signUp-content {
     @include flex(center, center);
     flex-direction: column;
     flex-wrap: wrap;
     color: $txt-color;
     margin: 200px;
+    
+    @include mobile {
+       display: none
+    };
 
     .title {
         font-size: 5.125rem;
@@ -54,12 +75,12 @@
     .desc {
         font-size: 3rem;
         font-weight: 300;
-        margin: 20px 0
+        margin: 20px 0;
     }
 
     .question {
         font-size: 1.9rem;
-        margin: 10px 0
+        margin: 10px 0;
     }
 
     .box {
