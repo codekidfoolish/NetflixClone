@@ -7,27 +7,29 @@ import requests from '../../api/requests';
 import axios from 'axios'
 import Youtube from 'react-youtube'
 import movieTrailer from 'movie-trailer';
-import Detail from '../Detail/Detail'
+import DetailCard from '../DetailCard/DetailCard';
 
 function Row({ title, fetchURL, isLarged }) {
     const [isMoved, setIsMoved] = useState(false)
+    const [showFilm, setShowFilm] = useState(false)
+    const [showModal, setShowModal] = useState([])
     const [number, setNumber] = useState(0)
-    const [showDetail, setShowDetail] = useState(false)
-
+    
     const [movies, setMovies] = useState([])
     const [trailerURL, setTrailerURL] = useState('')
 
-    const SlideList = useRef()
-    const AngleRightIcon = useRef()
+    const SlideList = useRef(null)
+    const AngleRightIcon = useRef(null)
 
     let navigate = useNavigate()
 
-    // GET API
+    // CALL API
     const base_URL = 'https://image.tmdb.org/t/p/original/'
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(`https://api.themoviedb.org/3${fetchURL}`)
             setMovies(request.data.results)
+            setShowModal(request.data.results)
             return request
         }
         fetchData();
@@ -66,16 +68,19 @@ function Row({ title, fetchURL, isLarged }) {
         let distance = SlideList.current.getBoundingClientRect().x - 50
         if (direction === 'left' && number > 0) {
             setNumber(number - 1)
-            SlideList.current.style.transform = `translateX(${230 + distance}px)`
+            SlideList.current.style.transform = `translateX(${200 + distance}px)`
         }
         if (direction === 'right' && number < 16) {
             setNumber(number + 1)
-            SlideList.current.style.transform = `translateX(${-230 + distance}px)`
+            SlideList.current.style.transform = `translateX(${-200 + distance}px)`
         }
     }
 
-
-
+    const handleModal = (id) => {
+        setNumber(id)
+        setShowFilm(!showFilm)
+    }
+console.log(showModal)
     return (
         <div className="row">
             <h1 className="row-title">{title}</h1>
@@ -86,16 +91,17 @@ function Row({ title, fetchURL, isLarged }) {
                 />
                 <div ref={SlideList} className="row-list">
                     {
-                        movies.map((movie) => (
+                        movies.map((movie, index) => (
 
                             <div className='row-item' key={movie.id}>
-                                <img src={`${base_URL}${isLarged ? movie.poster_path : movie.backdrop_path}`}
-                                    // onClick={() => navigate(`/detail/:${movie.id}`)}
+                                <img src={`${base_URL}${movie.poster_path}`}
+                                    // onClick={() => navigate(`/film/:${movie.id}`)}
                                     alt={movie.name}
-                                    className={isLarged ? "row-posters-large" : "row-posters"} />
+                                    className= "row-posters-large"  />
                                 <button className="info-btn">
                                     <FontAwesomeIcon className='info-icon'
-                                        // onClick={() => navigate(`/detail/:${movie.id}`)}
+                                        // onClick={() => navigate(`/film/:${movie.id}`)}
+                                        onClick={() => handleModal(index)}
                                         icon={faInfoCircle} />
                                     <FontAwesomeIcon className='info-icon'
                                         onClick={() => handleVideo(movie)}
@@ -105,11 +111,16 @@ function Row({ title, fetchURL, isLarged }) {
 
                         ))
                     }
+                    {
+                        showFilm && <DetailCard movie={showModal[number]} closeModal={setShowFilm} />
+                    }
                 </div>
-                <FontAwesomeIcon onClick={e => handleSlide('right')}
-                    className="icon right" icon={faAngleRight}
-                    ref={AngleRightIcon}
-                />
+                <div ref={AngleRightIcon}
+                    className="angleright-icon">
+                    <FontAwesomeIcon onClick={e => handleSlide('right')}
+                        className="icon right" icon={faAngleRight}
+                    />
+                </div>
 
             </div>
             {

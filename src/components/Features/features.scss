@@ -28,6 +28,13 @@
     .features-img {
         height: 100%;
     };
+    .youtubeTrailer {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    };
     .features-bottom {
         position: absolute;
         bottom:0;
@@ -43,8 +50,10 @@
         color: white;
         display: flex;
         flex-direction: column;
+        z-index: 2;
         .movie-title {
             font-size: 5rem;
+            text-shadow: 2px 2px 2px #3a3939;;
         }
         .movie-dsc {
             margin: 20px 0;

@@ -11,7 +11,7 @@ function Detail({ movieBanner, closeMovieBanner }) {
 
     return (
         <div className="detail">
-            <div className="detail-overlay">
+            <div onClick={closeModals} className="detail-overlay">
                 <div className="modal">
                     <div className="modal-top"
                         style={{
@@ -47,7 +47,7 @@ function Detail({ movieBanner, closeMovieBanner }) {
                         <div className="bottom-left">
                             <div className="info-list">
                                 <span className="info-item highlight"> {movieBanner?.vote_average} Rate</span>
-                                <span className="info-item">{movieBanner?.first_air_date.slice(0, 4)}</span>
+                                <span className="info-item">{movieBanner?.release_date.slice(0, 4)}</span>
                                 <span className="info-item">1h43p</span>
                                 <span className="info-item border">HD</span>
                             </div>
