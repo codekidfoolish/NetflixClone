@@ -80,7 +80,7 @@ function Row({ title, fetchURL, isLarged }) {
         setNumber(id)
         setShowFilm(!showFilm)
     }
-console.log(showModal)
+
     return (
         <div className="row">
             <h1 className="row-title">{title}</h1>
@@ -95,12 +95,10 @@ console.log(showModal)
 
                             <div className='row-item' key={movie.id}>
                                 <img src={`${base_URL}${movie.poster_path}`}
-                                    // onClick={() => navigate(`/film/:${movie.id}`)}
                                     alt={movie.name}
                                     className= "row-posters-large"  />
                                 <button className="info-btn">
                                     <FontAwesomeIcon className='info-icon'
-                                        // onClick={() => navigate(`/film/:${movie.id}`)}
                                         onClick={() => handleModal(index)}
                                         icon={faInfoCircle} />
                                     <FontAwesomeIcon className='info-icon'

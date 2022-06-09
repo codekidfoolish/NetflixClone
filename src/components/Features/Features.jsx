@@ -13,7 +13,7 @@ function Features({ type }) {
     const [showDetail, setShowDetail] = useState(false)
 
     const [trailerURL, setTrailerURL] = useState('')
-console.log(showDetail)
+
     useEffect(() => {
         async function fetchData() {
             const request = await axios.get(requests.fetchActionMovies)

@@ -45,8 +45,8 @@ function Navbar() {
                 <div className="subnav-icon">
                     <FontAwesomeIcon className="icon" icon={faAngleDown} />
                     <div className="options">
-                        <span>Settings</span>
-                        <span onClick={() => navigate('/login')} >Logout</span>
+                        <span>Setting</span>
+                        <span onClick={() => navigate('/login')} >Log out</span>
                     </div>
                 </div>
             </div>
